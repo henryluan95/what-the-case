@@ -15,7 +15,7 @@
   width: 12rem;
   top: 0;
   left: 0;
-  transform: translateX(-50%);
+  transform: translateX(-50%) scale(1.5);
 }
 
 .background__object2 {
@@ -23,7 +23,7 @@
   width: 12rem;
   bottom: 0;
   right: 0;
-  transform: translate(50%, 50%);
+  transform: translate(50%, 50%) scale(1.2);
 }
 
 .card {
