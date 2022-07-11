@@ -29,6 +29,25 @@ function App() {
     return (text.match(/\n/g) || []).length;
   };
 
+  //Create a function to clear input field
+  const clearInput = (e) => {
+    setText("");
+  };
+
+  //Create a function to add Lorem
+  const addLorem = () => {
+    setText(
+      "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Optio repellendus incidunt dicta totam id cumque ab doloribus sed, sequi facere assumenda laudantium fugit, expedita nemo molestiae sit, in vitae delectus."
+    );
+  };
+
+  //Create a function to add Pangrams
+  const addPangrams = () => {
+    setText(
+      "Quick fox jumps nightly above wizard.\nTwo driven jocks help fax my big quiz.\nPack my box with five dozen liquor jugs."
+    );
+  };
+
   return (
     <div className="App">
       <img className="background__object1" src={bg1}></img>
@@ -37,16 +56,27 @@ function App() {
         <h1 className="card__title">What The Case</h1>
         <div className="card__input-helpers input">
           <div className="input__counters">
-            <span className="input__counter">{text.length} Chars</span>
-            <span className="input__counter">{countWord()} Word</span>
             <span className="input__counter">
-              {countLineBreak()} Line-breakers
+              {text.length} {text.length <= 1 ? "Char" : "Chars"}
+            </span>
+            <span className="input__counter">
+              {countWord()} {countWord() <= 1 ? "Word" : "Words"}
+            </span>
+            <span className="input__counter">
+              {countLineBreak()}{" "}
+              {countLineBreak() <= 1 ? "Line-breaker" : "Line-breakers"}
             </span>
           </div>
           <div className="input__options">
-            <button className="input__option">Clear</button>
-            <button className="input__option">Paste Lorem Ipsum</button>
-            <button className="input__option">Paste Pangrams</button>
+            <button className="input__option" onClick={clearInput}>
+              Clear
+            </button>
+            <button className="input__option" onClick={addLorem}>
+              Paste Lorem Ipsum
+            </button>
+            <button className="input__option" onClick={addPangrams}>
+              Paste Pangrams
+            </button>
           </div>
         </div>
         <textarea
@@ -54,6 +84,7 @@ function App() {
           name="user-input"
           id="user-input"
           placeholder="Type your text here"
+          value={text}
           onChange={handleTextInput}
         ></textarea>
         <div className="card__cases">
