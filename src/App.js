@@ -42,8 +42,16 @@ function App() {
 
   return (
     <div className="App">
-      <img className="background__object1" src={bg1}></img>
-      <img className="background__object2" src={bg2}></img>
+      <img
+        className="background__object1"
+        src={bg1}
+        alt="background decoration"
+      ></img>
+      <img
+        className="background__object2"
+        src={bg2}
+        alt="background decoration"
+      ></img>
       <div className="card">
         <h1 className="card__title">What The Case</h1>
         <div className="card__input-helpers input">
@@ -81,7 +89,12 @@ function App() {
         ></textarea>
         <div className="card__cases">
           <div className="card__case">
-            <p className="card__case-title">camelCase</p>
+            <div>
+              <p className="card__case-title">camelCase</p>
+              <span className="card__case-info">
+                For variables and methods in Javascript
+              </span>
+            </div>
             <p className="card__case-text">{camelCase(text)}</p>
           </div>
           <div className="card__case">
@@ -89,15 +102,30 @@ function App() {
             <p className="card__case-text">{snakeCase(text)}</p>
           </div>
           <div className="card__case">
-            <p className="card__case-title">kebab-case</p>
+            <div>
+              <p className="card__case-title">kebab-case</p>
+              <span className="card__case-info">
+                For css properties in Javascript
+              </span>
+            </div>
             <p className="card__case-text">{kebabCase(text)}</p>
           </div>
           <div className="card__case">
-            <p className="card__case-title">PascalCase</p>
+            <div>
+              <p className="card__case-title">PascalCase</p>
+              <span className="card__case-info">
+                For classes and components in Javascript
+              </span>
+            </div>
             <p className="card__case-text">{pascalCase(text)}</p>
           </div>
           <div className="card__case">
-            <p className="card__case-title">SCREAMING_SNAKE_CASE</p>
+            <div>
+              <p className="card__case-title">SCREAMING_SNAKE_CASE</p>
+              <span className="card__case-info">
+                For constants in Javascript
+              </span>
+            </div>
             <p className="card__case-text">{screamingSnakeCase(text)}</p>
           </div>
           <div className="card__case">
