@@ -2,6 +2,16 @@ import { useState } from "react";
 import "./App.scss";
 import bg1 from "./assets/Group1.svg";
 import bg2 from "./assets/Group2.svg";
+import {
+  camelCase,
+  pascalCase,
+  trainCase,
+  kebabCase,
+  snakeCase,
+  screamingSnakeCase,
+  countWord,
+  countLineBreak,
+} from "./utilities/utilities";
 
 function App() {
   const [text, setText] = useState("");
@@ -9,24 +19,6 @@ function App() {
   //Create a function to track user's input
   const handleTextInput = (e) => {
     setText(e.target.value);
-  };
-
-  //Create a function to track number of word
-  const countWord = () => {
-    if (text.length === 0) {
-      return 0;
-    } else {
-      const textArray = text.match(/(\w+)/g);
-      if (textArray === null) {
-        return 0;
-      }
-      return textArray.length;
-    }
-  };
-
-  //Create a function to track line break
-  const countLineBreak = () => {
-    return (text.match(/\n/g) || []).length;
   };
 
   //Create a function to clear input field
@@ -60,11 +52,11 @@ function App() {
               {text.length} {text.length <= 1 ? "Char" : "Chars"}
             </span>
             <span className="input__counter">
-              {countWord()} {countWord() <= 1 ? "Word" : "Words"}
+              {countWord(text)} {countWord(text) <= 1 ? "Word" : "Words"}
             </span>
             <span className="input__counter">
-              {countLineBreak()}{" "}
-              {countLineBreak() <= 1 ? "Line-breaker" : "Line-breakers"}
+              {countLineBreak(text)}{" "}
+              {countLineBreak(text) <= 1 ? "Line-breaker" : "Line-breakers"}
             </span>
           </div>
           <div className="input__options">
@@ -88,12 +80,30 @@ function App() {
           onChange={handleTextInput}
         ></textarea>
         <div className="card__cases">
-          <p className="card__case">camelCase:</p>
-          <p className="card__case">snake_case:</p>
-          <p className="card__case">kebab-case:</p>
-          <p className="card__case">PascalCase:</p>
-          <p className="card__case">SCREAMING_SNAKE_CASE:</p>
-          <p className="card__case">Train-Case:</p>
+          <div className="card__case">
+            <p className="card__case-title">camelCase</p>
+            <p className="card__case-text">{camelCase(text)}</p>
+          </div>
+          <div className="card__case">
+            <p className="card__case-title">snake_case</p>
+            <p className="card__case-text">{snakeCase(text)}</p>
+          </div>
+          <div className="card__case">
+            <p className="card__case-title">kebab-case</p>
+            <p className="card__case-text">{kebabCase(text)}</p>
+          </div>
+          <div className="card__case">
+            <p className="card__case-title">PascalCase</p>
+            <p className="card__case-text">{pascalCase(text)}</p>
+          </div>
+          <div className="card__case">
+            <p className="card__case-title">SCREAMING_SNAKE_CASE</p>
+            <p className="card__case-text">{screamingSnakeCase(text)}</p>
+          </div>
+          <div className="card__case">
+            <p className="card__case-title">Train-Case</p>
+            <p className="card__case-text">{trainCase(text)}</p>
+          </div>
         </div>
       </div>
     </div>

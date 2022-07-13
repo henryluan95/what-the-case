@@ -69,11 +69,27 @@
   &__case {
     width: 100%;
     min-height: 3.5rem;
-    padding: 0.5rem 1rem;
-    border-radius: 1.25rem;
-    border: none;
-    outline: none;
-    background-color: white;
+    word-break: break-all;
+
+    @include flex-layout(column);
+
+    &-title {
+      padding: 0.5rem 1rem;
+      background-color: white;
+      border-radius: 1.25rem;
+      border: none;
+      outline: none;
+      margin-bottom: 0.5rem;
+      width: auto;
+      display: inline-block;
+    }
+
+    &-text {
+      @extend .card__case-title;
+      min-height: 8rem;
+      width: 100%;
+      white-space: pre-line;
+    }
 
     @include desktop {
       max-width: 49%;
