@@ -88,7 +88,8 @@
     &-text {
       @extend .card__case-title;
       background-color: white;
-      min-height: 8rem;
+      color: black;
+      min-height: 5rem;
       width: 100%;
       white-space: pre-line;
     }
@@ -101,6 +102,10 @@
       text-align: center;
       display: inline-block;
       color: white;
+
+      @include desktop {
+        margin-bottom: 0.5rem;
+      }
     }
 
     @include desktop {

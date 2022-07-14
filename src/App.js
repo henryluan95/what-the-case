@@ -29,7 +29,7 @@ function App() {
   //Create a function to add Lorem
   const addLorem = () => {
     setText(
-      "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Optio repellendus incidunt dicta totam id cumque ab doloribus sed, sequi facere assumenda laudantium fugit, expedita nemo molestiae sit, in vitae delectus."
+      "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Optio repellendus incidunt dicta."
     );
   };
 
@@ -89,42 +89,43 @@ function App() {
         ></textarea>
         <div className="card__cases">
           <div className="card__case">
-            <div>
+            <div className="card__case-desc">
               <p className="card__case-title">camelCase</p>
-              <span className="card__case-info">
-                For variables and methods in Javascript
-              </span>
+              <span className="card__case-info">For variables and methods</span>
             </div>
             <p className="card__case-text">{camelCase(text)}</p>
           </div>
           <div className="card__case">
-            <p className="card__case-title">snake_case</p>
+            <div className="card__case-desc">
+              <p className="card__case-title">snake_case</p>
+              <span className="card__case-info">
+                Similar to camelCase. PICK ONE!
+              </span>
+            </div>
             <p className="card__case-text">{snakeCase(text)}</p>
           </div>
           <div className="card__case">
-            <div>
+            <div className="card__case-desc">
               <p className="card__case-title">kebab-case</p>
               <span className="card__case-info">
-                For css properties in Javascript
+                For css properties, html classes
               </span>
             </div>
             <p className="card__case-text">{kebabCase(text)}</p>
           </div>
           <div className="card__case">
-            <div>
+            <div className="card__case-desc">
               <p className="card__case-title">PascalCase</p>
               <span className="card__case-info">
-                For classes and components in Javascript
+                For classes and components
               </span>
             </div>
             <p className="card__case-text">{pascalCase(text)}</p>
           </div>
           <div className="card__case">
-            <div>
+            <div className="card__case-desc">
               <p className="card__case-title">SCREAMING_SNAKE_CASE</p>
-              <span className="card__case-info">
-                For constants in Javascript
-              </span>
+              <span className="card__case-info">For constants</span>
             </div>
             <p className="card__case-text">{screamingSnakeCase(text)}</p>
           </div>

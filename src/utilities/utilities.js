@@ -1,8 +1,9 @@
 //Create a function to format camelCase
 export const camelCase = (text) => {
+  const removedCommaText = text.replace(/,/g, "");
   //When there are line breaks
-  if (text.includes("\n")) {
-    const sentenceArray = text.split("\n");
+  if (removedCommaText.includes("\n")) {
+    const sentenceArray = removedCommaText.split("\n");
     const sentences = [];
     for (const sentence of sentenceArray) {
       const wordsArray = sentence.split(" ");
@@ -20,7 +21,7 @@ export const camelCase = (text) => {
   }
 
   //When there is no line break
-  const sentenceArray = text.split(". ");
+  const sentenceArray = removedCommaText.split(". ");
   const sentences = [];
   for (const sentence of sentenceArray) {
     const wordsArray = sentence.split(" ");
@@ -37,11 +38,65 @@ export const camelCase = (text) => {
   return sentences.join(". ");
 };
 
-//Create a function to format Pascal Case
-export const pascalCase = (text) => {
+//Create a function to format snake_case
+export const snakeCase = (text) => {
+  const removedCommaText = text.replace(/,/g, "");
   //When there are line breaks
   if (text.includes("\n")) {
-    const sentenceArray = text.split("\n");
+    const sentenceArray = removedCommaText.split("\n");
+    const sentences = [];
+    for (const sentence of sentenceArray) {
+      const wordsArray = sentence.split(" ");
+      const formattedWordsArray = wordsArray.map((word) => word.toLowerCase());
+      sentences.push(formattedWordsArray.join("_"));
+    }
+    return sentences.join("\n");
+  }
+
+  //When there is no line break
+  const sentenceArray = removedCommaText.split(". ");
+  const sentences = [];
+  for (const sentence of sentenceArray) {
+    const wordsArray = sentence.split(" ");
+    const formattedWordsArray = wordsArray.map((word) => word.toLowerCase());
+    sentences.push(formattedWordsArray.join("_"));
+  }
+  return sentences.join(". ");
+};
+
+//Create a function to format kebab case
+export const kebabCase = (text) => {
+  const removedCommaText = text.replace(/,/g, "");
+  //When there are line breaks
+  if (text.includes("\n")) {
+    const sentenceArray = removedCommaText.split("\n");
+    const sentences = [];
+    for (const sentence of sentenceArray) {
+      const wordsArray = sentence.split(" ");
+      const formattedWordsArray = wordsArray.map((word) => word.toLowerCase());
+      sentences.push(formattedWordsArray.join("-"));
+    }
+    return sentences.join("\n");
+  }
+
+  //When there is no line break
+  const sentenceArray = removedCommaText.split(". ");
+  const sentences = [];
+  for (const sentence of sentenceArray) {
+    const wordsArray = sentence.split(" ");
+    const formattedWordsArray = wordsArray.map((word) => word.toLowerCase());
+    sentences.push(formattedWordsArray.join("-"));
+  }
+  return sentences.join(". ");
+};
+
+//Create a function to format Pascal Case
+export const pascalCase = (text) => {
+  const removedCommaText = text.replace(/,/g, "");
+
+  //When there are line breaks
+  if (text.includes("\n")) {
+    const sentenceArray = removedCommaText.split("\n");
     const sentences = [];
     for (const sentence of sentenceArray) {
       const wordsArray = sentence.split(" ");
@@ -55,7 +110,7 @@ export const pascalCase = (text) => {
   }
 
   //When there is no line break
-  const sentenceArray = text.split(". ");
+  const sentenceArray = removedCommaText.split(". ");
   const sentences = [];
   for (const sentence of sentenceArray) {
     const wordsArray = sentence.split(" ");
@@ -68,11 +123,39 @@ export const pascalCase = (text) => {
   return sentences.join(". ");
 };
 
-//Create a function to format Train-Case
-export const trainCase = (text) => {
+//Create a function to format screaming snake_case
+export const screamingSnakeCase = (text) => {
+  const removedCommaText = text.replace(/,/g, "");
   //When there are line breaks
   if (text.includes("\n")) {
-    const sentenceArray = text.split("\n");
+    const sentenceArray = removedCommaText.split("\n");
+    const sentences = [];
+    for (const sentence of sentenceArray) {
+      const wordsArray = sentence.split(" ");
+      const formattedWordsArray = wordsArray.map((word) => word.toUpperCase());
+      sentences.push(formattedWordsArray.join("_"));
+    }
+    return sentences.join("\n");
+  }
+
+  //When there is no break line
+  const sentenceArray = removedCommaText.split(". ");
+  const sentences = [];
+  for (const sentence of sentenceArray) {
+    const wordsArray = sentence.split(" ");
+    const formattedWordsArray = wordsArray.map((word) => word.toUpperCase());
+    sentences.push(formattedWordsArray.join("_"));
+  }
+  return sentences.join(". ");
+};
+
+//Create a function to format Train-Case
+export const trainCase = (text) => {
+  const removedCommaText = text.replace(/,/g, "");
+
+  //When there are line breaks
+  if (text.includes("\n")) {
+    const sentenceArray = removedCommaText.split("\n");
     const sentences = [];
     for (const sentence of sentenceArray) {
       const wordsArray = sentence.split(" ");
@@ -86,7 +169,7 @@ export const trainCase = (text) => {
   }
 
   //When there is no line break
-  const sentenceArray = text.split(". ");
+  const sentenceArray = removedCommaText.split(". ");
   const sentences = [];
   for (const sentence of sentenceArray) {
     const wordsArray = sentence.split(" ");
@@ -97,40 +180,6 @@ export const trainCase = (text) => {
     sentences.push(formattedWordsArray.join("-"));
   }
   return sentences.join(". ");
-};
-
-//Create a function to format kebab case
-export const kebabCase = (text) => {
-  const sentenceArray = text.split("\n");
-  const sentences = [];
-  for (const sentence of sentenceArray) {
-    const wordsArray = sentence.split(" ");
-    const formattedWordsArray = wordsArray.map((word) => word.toLowerCase());
-    sentences.push(formattedWordsArray.join("-"));
-  }
-  return sentences.join("\n");
-};
-
-//Create a function to format snake_case
-export const snakeCase = (text) => {
-  const sentenceArray = text.split("\n");
-  const sentences = [];
-  for (const sentence of sentenceArray) {
-    const wordsArray = sentence.split(" ");
-    const formattedWordsArray = wordsArray.map((word) => word.toLowerCase());
-    sentences.push(formattedWordsArray.join("_"));
-  }
-  return sentences.join("\n");
-};
-
-//Create a function to format screaming snake_case
-export const screamingSnakeCase = (text) => {
-  const formattedString = text.replace(/[,.]/g, "");
-  const wordsArray = formattedString.split(" ");
-  const formattedWordsArray = wordsArray.map((word, index) =>
-    word.toUpperCase()
-  );
-  return formattedWordsArray.join("_");
 };
 
 //Create a function to track number of word
