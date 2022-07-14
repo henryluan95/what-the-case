@@ -44,4 +44,6 @@ $ npm install
 
 Henry Luan [@henryluan](https://github.com/henryluan95)
 
+## Acknowledgements
 
+This project is inspired by Jason Florentino. Check out his project [right here](https://github.com/jasonflorentino/caser-app).
