@@ -1,6 +1,6 @@
 # WHAT THE CASE
 
-What The Case is a personal project that I built to practice string manipulation and to showcase the most common programing case types to my students.
+What The Case is a personal project that I built to practice string manipulation and to showcase the most common programming case types to my students.
 
 Please click here for the live website: https://what-the-case.vercel.app/
 
